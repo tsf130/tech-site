@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技创新强国之路</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== 头部 ===== -->
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="img/logo.png" alt="logo">
+            <span>科技创新强国之路</span>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+        
+                <li><a href="index.html">首页</a></li>
+        
+                <!-- 一级菜单 + 二级菜单 -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-title">科技领域</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/space.html">航天强国</a></li>
+                        <li><a href="pages/deepsea.html">深海探索</a></li>
+                        <li><a href="pages/bio.html">生物科技</a></li>
+                        <li><a href="pages/info.html">信息科技</a></li>
+                    </ul>
+                </li>
+        
+                <li><a href="pages/join.html">加入创新</a></li>
+        
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- ===== 轮播图（原生 JS） ===== -->
+<div class="container">
+    <div class="slider">
+        <img src="img/slide1.jpg" class="slide active" alt="航天强国">
+        <img src="img/slide2.jpg" class="slide" alt="深海探索">
+        <img src="img/slide3.jpg" class="slide" alt="生物科技">
+        <button class="prev">‹</button>
+        <button class="next">›</button>
+    </div>
+</div>
+
+<!-- ===== 主体左右布局 ===== -->
+<main class="container main-layout">
+
+    <!-- 左侧主内容 -->
+    <section class="left">
+
+        <!-- 板块1：数据展示（flex） -->
+        <section class="panel">
+            <h2>创新成果速览</h2>
+            <div class="stats">
+                <div class="stat">128<br><span>科研项目</span></div>
+                <div class="stat">56<br><span>重大装置</span></div>
+                <div class="stat">320<br><span>成果案例</span></div>
+                <div class="stat">24<br><span>创新团队</span></div>
+            </div>
+        </section>
+
+        <!-- 板块2：图文结合（flex） -->
+        <section class="panel feature">
+            <img src="img/scientist1.jpg" alt="科学家精神">
+            <div>
+                <h3>科学家精神</h3>
+                <p>
+                    科学家精神是我国科技创新不断取得突破的重要支撑。
+                    广大科研人员坚持面向国家重大需求，
+                    围绕航天、深海、生物、信息等关键领域开展长期攻关。
+                </p>
+                <p>
+                    在科研过程中，科研人员甘坐冷板凳，
+                    面对复杂技术难题和反复试验依然保持耐心与专注，
+                    通过团队协作和多学科融合推动关键核心技术突破。
+                </p>
+                <p>
+                    他们勇于创新、追求卓越，
+                    不断提升技术可靠性和工程应用水平，
+                    为科技成果服务国家发展和人民生活奠定坚实基础。
+                </p>
+            </div>
+        </section>
+
+        <!-- 板块3：float 布局 -->
+        <section class="panel">
+            <h3>专题速览</h3>
+        
+            <div class="float-left">
+                <h4>航天科技</h4>
+                <p>
+                    聚焦载人航天工程、空间站建设与深空探测任务，
+                    在运载能力、空间应用和探测技术方面持续取得突破，
+                    形成较为完整的航天技术体系。
+                </p>
+                <a class="text-link" href="./pages/space.html">进入航天专题 →</a>
+            </div>
+        
+            <div class="float-right">
+                <h4>深海科技</h4>
+                <p>
+                    面向深海极端环境，重点发展万米级潜器、
+                    海底长期观测平台和深海通信技术，
+                    不断提升海洋探测与研究能力。
+                </p>
+                <a class="text-link" href="./pages/deepsea.html">进入深海专题 →</a>
+            </div>
+        
+            <div class="clear"></div>
+        </section>
+
+
+        <!-- 板块4：前沿技术卡片（Grid 布局） -->
+        <section class="panel">
+            <h3>前沿技术展望</h3>
+            <div class="grid-showcase">
+                <div class="grid-item">
+                    <div class="icon">⚛️</div>
+                    <h4>量子计算</h4>
+                    <p>突破传统算力极限，解决复杂科学难题。</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">🤖</div>
+                    <h4>人工智能</h4>
+                    <p>赋能千行百业，推动社会智能化转型。</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📡</div>
+                    <h4>6G 通信</h4>
+                    <p>构建天地一体化网络，实现万物智联。</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">☀️</div>
+                    <h4>清洁能源</h4>
+                    <p>发展高效光伏与氢能，助力双碳目标。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 板块5：时间轴（定位） -->
+        <section class="panel timeline">
+            <h3>创新发展路径</h3>
+        
+            <p class="muted">
+                科技创新通常经历从基础研究到工程验证，再到规模化应用的过程。
+                本模块以时间轴形式展示科技成果的典型发展路径。
+            </p>
+        
+            <div class="line">
+        
+                <div class="item">
+                    <span></span>
+                    <h4>基础研究</h4>
+                    <p>
+                        围绕关键科学问题开展理论研究和实验探索，
+                        在材料、算法、机理等方面积累原始创新成果，
+                        为后续工程化奠定理论和技术基础。
+                    </p>
+                </div>
+        
+                <div class="item">
+                    <span></span>
+                    <h4>工程验证</h4>
+                    <p>
+                        将基础研究成果引入工程实践，
+                        通过样机研制、系统集成和多轮测试，
+                        验证技术的可行性、可靠性与稳定性。
+                    </p>
+                </div>
+        
+                <div class="item">
+                    <span></span>
+                    <h4>应用推广</h4>
+                    <p>
+                        在工程验证成熟的基础上，
+                        推动技术在实际场景中的规模化应用，
+                        实现科技成果服务国家发展和社会需求。
+                    </p>
+                </div>
+        
+            </div>
+        </section>
+
+
+    </section>
+
+    <!-- 右侧信息栏 -->
+    <aside class="right">
+        <div class="side-box">
+            <h4>科技快讯</h4>
+            <ul>
+                <li>新一代火箭试验成功</li>
+                <li>深海装备突破万米</li>
+                <li>国产芯片持续进展</li>
+            </ul>
+        </div>
+
+        <div class="side-box">
+            <h4>快速入口</h4>
+            <a href="pages/space.html">航天专题</a>
+            <a href="pages/join.html">加入创新</a>
+        </div>
+    </aside>
+
+</main>
+
+<footer class="footer">
+    © 2025 科技创新强国之路
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei";
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+/* ===== Header ===== */
+.header {
+    background: #0b3c6f;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav a.active,
+.nav a:hover {
+    border-bottom: 2px solid #ffd04b;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list > li {
+    position: relative;   /* ★ 二级菜单定位关键 */
+    margin-left: 15px;
+}
+
+.nav-list > li > a {
+    display: block;
+    padding: 6px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-list > li > a:hover {
+    background: #345a8a;
+}
+
+/* 一级菜单文字 */
+.dropdown-title {
+    position: relative;
+    padding-right: 18px;   /* 给三角形留空间 */
+}
+
+/* 默认：向下三角 */
+.dropdown-title::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;   /* 向下 */
+    transition: transform 0.3s;
+}
+
+.dropdown:hover .dropdown-title::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+
+/* 二级菜单容器 */
+.dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 120px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 5px 0;
+    z-index: 1000;
+    
+    /* 动画状态 */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标移入显示 */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 二级菜单项 */
+.dropdown-menu li a {
+    display: block;
+    color: #333;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.2s;
+    margin-left: 0;
+}
+
+.dropdown-menu li a:hover {
+    background: #f5f7fa;
+    color: #0b3c6f;
+}
+
+
+
+/* ===== Slider ===== */
+.slider {
+    position: relative;
+    margin: 30px auto;
+    max-width: 1000px; /* 限制最大宽度 */
+    border-radius: 12px; /* 圆角 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* 添加阴影 */
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    /* 优化图片显示 */
+    height: 400px;
+    object-fit: cover;
+    animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+    from {opacity: 0.8} 
+    to {opacity: 1}
+}
+
+.slide.active {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    font-size: 20px;
+    /* 修正对齐 */
+    padding-bottom: 3px; 
+    line-height: 1;
+    
+    /* 默认隐藏状态 */
+    opacity: 0;
+    transition: all 0.3s ease;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* 鼠标悬停显示 */
+.slider:hover .prev,
+.slider:hover .next {
+    opacity: 1;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255,255,255,0.9);
+    color: #0b3c6f;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ===== Layout ===== */
+.main-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.left { flex: 3; }
+.right { flex: 1; }
+
+/* ===== Panel ===== */
+.panel {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* ===== Stats ===== */
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat {
+    width: 23%;
+    text-align: center;
+    background: #eee;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.stat:hover {
+    background: #ffd04b;
+}
+
+/* ===== Feature ===== */
+.feature {
+    display: flex;
+    gap: 20px;
+    align-items: center; /* 垂直居中 */
+}
+
+.feature img {
+    width: 400px;        /* 固定宽度 */
+    height: 250px;       /* 固定高度 */
+    object-fit: cover;   /* 裁剪适应，不变形 */
+    border-radius: 8px;  /* 轻微圆角 */
+    flex-shrink: 0;      /* 防止被挤压 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== Form Page (Join) ===== */
+.join-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.join-container h2 {
+    text-align: center;
+    color: #0b3c6f;
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-bottom: 2px solid #ffd04b;
+    padding-bottom: 15px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.join-form p {
+    margin-bottom: 20px;
+}
+
+.join-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.join-form input[type="text"],
+.join-form input[type="email"],
+.join-form select,
+.join-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+.join-form input[type="text"]:focus,
+.join-form input[type="email"]:focus,
+.join-form select:focus,
+.join-form textarea:focus {
+    border-color: #0b3c6f;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(11, 60, 111, 0.15);
+    outline: none;
+}
+
+.join-form button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #0b3c6f 0%, #1a5c9e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(11, 60, 111, 0.3);
+}
+
+.join-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 60, 111, 0.4);
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input, .checkbox-group input {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* ===== Grid Showcase ===== */
+.grid-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid #0b3c6f;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.grid-item h4 {
+    margin-top: 10px;
+    color: #0b3c6f;
+}
+
+.grid-item .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* ===== Float ===== */
+.float-left {
+    float: left;
+    width: 48%;
+}
+
+.float-right {
+    float: right;
+    width: 48%;
+}
+
+.clear {
+    clear: both;
+}
+
+/* ===== Timeline ===== */
+.timeline .item {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.timeline span {
+    width: 10px;
+    height: 10px;
+    background: #0b3c6f;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
+
+/* ===== Right ===== */
+.side-box {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.side-box a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: #0b3c6f;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    /* Header */
+    .header-inner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .nav-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        margin: 5px 10px;
+    }
+
+    /* Layout */
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%;
+    }
+
+    /* Stats */
+    .stats {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .stat {
+        width: 48%; /* 两列布局 */
+        margin-bottom: 15px;
+    }
+
+    /* Feature */
+    .feature {
+        flex-direction: column;
+    }
+
+    .feature img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Float Layout */
+    .float-left, .float-right {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Grid Layout */
+    .grid-showcase {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat {
+        width: 100%; /* 单列布局 */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-list > li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        text-align: center;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        background: #f8f8f8;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        transform: none;
+    }
+
+    .dropdown-menu li a {
+        border-bottom: 1px solid #eee;
+    }
+}

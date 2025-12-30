@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入创新团队</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="../img/logo.png" alt="logo">
+            <span>科技创新强国之路</span>
+        </div>
+
+        <nav class="nav">
+            <ul class="nav-list">
+        
+                <li><a href="../index.html">首页</a></li>
+        
+                <!-- 一级菜单 + 二级菜单 -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-title">科技领域</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="space.html">航天强国</a></li>
+                        <li><a href="deepsea.html">深海探索</a></li>
+                        <li><a href="bio.html">生物科技</a></li>
+                        <li><a href="info.html">信息科技</a></li>
+                    </ul>
+                </li>
+        
+                <li><a href="join.html">加入创新</a></li>
+        
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="container">
+    <section class="join-container">
+        <h2>加入创新团队</h2>
+
+        <form class="join-form">
+            <p>
+                <label>姓名：</label>
+                <input type="text" required title="请输入您的姓名" placeholder="请输入您的姓名">
+            </p>
+
+            <p>
+                <label>邮箱：</label>
+                <input type="email" required title="请输入您的邮箱" placeholder="example@email.com">
+            </p>
+
+            <p>
+                <label>兴趣领域：</label>
+                <select required title="请选择您的兴趣领域">
+                    <option value="" disabled selected>请选择...</option>
+                    <option>航天</option>
+                    <option>深海</option>
+                    <option>生物</option>
+                    <option>信息</option>
+                </select>
+            </p>
+
+            <p>
+                <label>身份：</label>
+                <span class="radio-group">
+                    <label><input type="radio" name="role" value="student" required title="请选择您的身份"> 学生</label>
+                    <label><input type="radio" name="role" value="teacher" required title="请选择您的身份"> 教师</label>
+                </span>
+            </p>
+
+            <p>
+                <label>技能：</label>
+                <span class="checkbox-group">
+                    <label><input type="checkbox" value="frontend" title="请选择您的技能"> 前端</label>
+                    <label><input type="checkbox" value="data_analysis" title="请选择您的技能"> 数据分析</label>
+                    <label><input type="checkbox" value="design" title="请选择您的技能"> 设计</label>
+                </span>
+            </p>
+
+            <p>
+                <label>留言：</label>
+                <textarea rows="5" placeholder="请输入您的留言..." required title="请输入您的留言"></textarea>
+            </p>
+
+            <button type="submit">提交申请</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">© 2025 科技创新强国之路</footer>
+</body>
+</html>
